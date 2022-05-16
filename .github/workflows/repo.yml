@@ -6,14 +6,6 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install modules
-        run: npm install
-      - name: Create production bundle
-        run: npm run build
   eslint:
     runs-on: ubuntu-latest
     steps:
@@ -28,8 +20,17 @@ jobs:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
+  build:
+    needs: 'eslint'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: Create production bundle
+        run: npm run build
   test:
-    needs: [ eslint, build ]
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
