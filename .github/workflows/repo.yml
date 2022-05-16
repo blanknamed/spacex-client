@@ -21,7 +21,7 @@ jobs:
           extensions: 'js,jsx,ts,tsx'
           annotations: true
   build:
-    needs: 'eslint'
+    needs: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
       - name: Create production bundle
         run: npm run build
   test:
-    needs: build
+    needs: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
