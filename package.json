@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.0.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "framer-motion": "^6.3.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1"
@@ -27,13 +31,6 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^8.13.0",
-    "@typescript-eslint/eslint-plugin": "^5.24.0",
-    "@typescript-eslint/parser": "^5.24.0",
-    "eslint": "^8.15.0",
-    "eslint-config-xo": "^0.40.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-testing-library": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -41,6 +38,13 @@
     "@types/node": "^16.11.35",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.24.0",
+    "@typescript-eslint/parser": "^5.24.0",
+    "eslint": "^8.15.0",
+    "eslint-config-xo": "^0.40.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-testing-library": "^5.5.0",
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.4"
   }
