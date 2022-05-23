@@ -1,12 +1,14 @@
-import * as React from 'react';
 import { Layout } from './layout';
+import { ThemeProvider } from './services/theme';
 
 export function App() {
   return (
-    <Layout>
-      <div className="App">
-        App
-      </div>
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <div className="App">
+          App
+        </div>
+      </Layout>
+    </ThemeProvider>
   );
 }

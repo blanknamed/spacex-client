@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Group, Navbar as MantineNavbar } from '@mantine/core';
 import { Logout, SwitchHorizontal } from 'tabler-icons-react';
 import { NavbarLink } from './components/NavbarLink';
+import { DarkModeSwitch } from './components/DarkModeSwitch';
 import { mockdata } from '../../constants/links';
 
 export const Navbar = () => {
@@ -28,6 +29,7 @@ export const Navbar = () => {
       </MantineNavbar.Section>
       <MantineNavbar.Section>
         <Group direction="column" align="center" spacing={0}>
+          <DarkModeSwitch />
           <NavbarLink icon={SwitchHorizontal} label="Change account" />
           <NavbarLink icon={Logout} label="Logout" />
         </Group>

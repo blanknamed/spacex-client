@@ -1,6 +1,5 @@
-import React from 'react';
+import type { PropsWithChildren } from 'types/utils';
 import { Navbar } from './components/Navbar';
-import { PropsWithChildren } from '../types/utils';
 import { useStyles } from './styles';
 
 export const Layout = ({ children }:PropsWithChildren) => {

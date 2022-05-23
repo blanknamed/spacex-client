@@ -37,6 +37,7 @@ module.exports = {
     'import/prefer-default-export': RULE_OFF,
     'import/no-extraneous-dependencies': RULE_OFF,
     indent: RULE_OFF,
+    'react/react-in-jsx-scope': RULE_OFF,
     'react/require-default-props': RULE_OFF,
     'react/function-component-definition': RULE_OFF,
     'react/jsx-props-no-spreading': RULE_OFF,
