@@ -3,15 +3,17 @@ import { MoonStars, Sun } from 'tabler-icons-react';
 
 export const DarkModeSwitch = () => {
   // eslint-disable-next-line @typescript-eslint/unbound-method
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const {
+    colorScheme, toggleColorScheme,
+  } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
   return (
     <ActionIcon
       sx={(theme) => ({
-        width: 50,
-        height: 50,
         borderRadius: theme.radius.md,
+        height: 50,
+        width: 50,
       })}
       variant="outline"
       color={dark ? 'yellow' : 'blue'}

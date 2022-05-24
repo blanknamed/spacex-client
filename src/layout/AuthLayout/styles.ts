@@ -1,14 +1,7 @@
 import { createStyles } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
-  container: {
-    display: 'flex',
-    width: '100%',
-    height: '100vh',
-    flexDirection: 'row',
-  },
   background: {
-    flexGrow: 1,
     background: theme.fn.linearGradient(
       90,
       theme.colors.dark[0],
@@ -16,11 +9,18 @@ export const useStyles = createStyles((theme) => ({
       theme.colors.orange[2],
       theme.colors.orange[3],
     ),
+    flexGrow: 1,
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100vh',
+    width: '100%',
   },
   content: {
+    alignContent: 'center',
     display: 'flex',
     flex: '0 0 45%',
     justifyContent: 'center',
-    alignContent: 'center',
   },
 }));

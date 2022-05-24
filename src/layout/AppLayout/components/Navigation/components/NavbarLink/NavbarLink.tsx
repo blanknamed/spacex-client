@@ -6,11 +6,18 @@ import type { NavbarLinkProps } from './types';
 export const NavbarLink = ({
   icon: Icon, label, active, onClick,
 }: NavbarLinkProps) => {
-  const { classes, cx } = useStyles();
+  const {
+    classes, cx,
+  } = useStyles();
 
   return (
     <Tooltip label={label} position="right" withArrow transitionDuration={0}>
-      <UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
+      <UnstyledButton
+        onClick={onClick}
+        className={cx(classes.link, {
+          [classes.active]: active,
+        })}
+      >
         <Icon />
       </UnstyledButton>
     </Tooltip>

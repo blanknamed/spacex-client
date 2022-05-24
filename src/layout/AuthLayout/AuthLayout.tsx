@@ -3,6 +3,7 @@ import { useStyles } from './styles';
 
 export const AuthLayout = () => {
   const { classes } = useStyles();
+
   return (
     <div className={classes.container}>
       <div className={classes.content}>

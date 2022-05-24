@@ -23,8 +23,14 @@ export const Navigation = () => {
 
   return (
     <Navbar
-      width={{ base: 80 }}
-      sx={{ top: 0, bottom: 0, height: '100vh' }}
+      width={{
+        base: 80,
+      }}
+      sx={{
+        bottom: 0,
+        height: '100vh',
+        top: 0,
+      }}
     >
       <Navbar.Section grow mt={50}>
         <Group direction="column" align="center" spacing={0}>

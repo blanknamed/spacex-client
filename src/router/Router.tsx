@@ -1,6 +1,4 @@
-import {
-  BrowserRouter, Navigate, Route, Routes as RoutesWrapper,
-} from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes as RoutesWrapper } from 'react-router-dom';
 import { Routes } from './constants/routes';
 import { AppLayout } from '../layout/AppLayout';
 import { Home } from '../pages/Home';

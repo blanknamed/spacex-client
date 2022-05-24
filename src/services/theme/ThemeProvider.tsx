@@ -8,9 +8,9 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const preferredColorScheme = useColorScheme();
 
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
     defaultValue: preferredColorScheme,
     getInitialValueInEffect: true,
+    key: 'mantine-color-scheme',
   });
 
   const toggleColorScheme = (value?: ColorScheme) => setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
@@ -28,7 +28,6 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
         theme={{
           colorScheme,
           fontFamily: ['Plus Jakarta Sans', 'sans-serif'],
-
         }}
         withNormalizeCSS
       >
