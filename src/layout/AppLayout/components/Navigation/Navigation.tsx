@@ -1,39 +1,43 @@
 import * as React from 'react';
-import { Group, Navbar as MantineNavbar } from '@mantine/core';
+import { Group, Navbar } from '@mantine/core';
 import { Logout, SwitchHorizontal } from 'tabler-icons-react';
 import { NavbarLink } from './components/NavbarLink';
 import { DarkModeSwitch } from './components/DarkModeSwitch';
-import { mockdata } from '../../constants/links';
+import { appLinks } from '../../constants/links';
 
-export const Navbar = () => {
+export const Navigation = () => {
   const [active, setActive] = React.useState(2);
 
-  const links = mockdata.map((link, index) => (
-    <NavbarLink
-      {...link}
-      key={link.label}
-      active={index === active}
-      onClick={() => setActive(index)}
-    />
-  ));
+  const links = appLinks.map((link, index) => {
+    const isLinkActive = index === active;
+
+    return (
+      <NavbarLink
+        {...link}
+        key={link.label}
+        active={isLinkActive}
+        onClick={() => setActive(index)}
+      />
+    );
+  });
 
   return (
-    <MantineNavbar
+    <Navbar
       width={{ base: 80 }}
-      sx={{ height: '98vh' }}
+      sx={{ top: 0, bottom: 0, height: '100vh' }}
     >
-      <MantineNavbar.Section grow mt={50}>
+      <Navbar.Section grow mt={50}>
         <Group direction="column" align="center" spacing={0}>
           {links}
         </Group>
-      </MantineNavbar.Section>
-      <MantineNavbar.Section>
+      </Navbar.Section>
+      <Navbar.Section>
         <Group direction="column" align="center" spacing={0}>
           <DarkModeSwitch />
           <NavbarLink icon={SwitchHorizontal} label="Change account" />
           <NavbarLink icon={Logout} label="Logout" />
         </Group>
-      </MantineNavbar.Section>
-    </MantineNavbar>
+      </Navbar.Section>
+    </Navbar>
   );
 };

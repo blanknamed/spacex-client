@@ -33,6 +33,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/indent': RULE_ERROR,
     '@typescript-eslint/no-floating-promises': RULE_OFF,
+    '@typescript-eslint/consistent-type-imports': [RULE_ERROR, { prefer: 'type-imports' }],
     'import/no-default-export': [RULE_ERROR],
     'import/prefer-default-export': RULE_OFF,
     'import/no-extraneous-dependencies': RULE_OFF,
@@ -41,6 +42,15 @@ module.exports = {
     'react/require-default-props': RULE_OFF,
     'react/function-component-definition': RULE_OFF,
     'react/jsx-props-no-spreading': RULE_OFF,
-
+    'import/order': [RULE_ERROR, {
+      pathGroups: [
+        {
+          pattern: 'react',
+          group: 'builtin',
+          position: 'before',
+        },
+      ],
+      groups: ['builtin', 'internal', 'external', 'index', 'sibling', 'parent', 'object', 'type'],
+    }],
   },
 };

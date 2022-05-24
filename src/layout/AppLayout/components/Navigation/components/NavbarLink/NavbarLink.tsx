@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip, UnstyledButton } from '@mantine/core';
-import type { NavbarLinkProps } from './types';
 import { useStyles } from './styles';
+import type { NavbarLinkProps } from './types';
 
 export const NavbarLink = ({
   icon: Icon, label, active, onClick,

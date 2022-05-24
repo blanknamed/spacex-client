@@ -1,14 +1,10 @@
-import { Layout } from './layout';
 import { ThemeProvider } from './services/theme';
+import { Router } from './router';
 
 export function App() {
   return (
     <ThemeProvider>
-      <Layout>
-        <div className="App">
-          App
-        </div>
-      </Layout>
+      <Router />
     </ThemeProvider>
   );
 }
