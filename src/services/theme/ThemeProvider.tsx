@@ -16,6 +16,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const toggleColorScheme = (value?: ColorScheme) => setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   useHotkeys([['ctrl+J', () => toggleColorScheme()]]);
+
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <Global styles={(theme) => ({
