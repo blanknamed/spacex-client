@@ -37,6 +37,8 @@ module.exports = {
     }],
     '@typescript-eslint/indent': RULE_ERROR,
     '@typescript-eslint/no-floating-promises': RULE_OFF,
+    // '@typescript-eslint/no-unsafe-assignment': RULE_OFF,
+    // '@typescript-eslint/no-unsafe-call': RULE_OFF,
     'import/no-default-export': [RULE_ERROR],
     'import/no-extraneous-dependencies': RULE_OFF,
     'import/order': [RULE_ERROR, {
