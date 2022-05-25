@@ -1,8 +1,10 @@
-import * as React from 'react';
+import { ThemeProvider } from './services/theme';
+import { Router } from './router';
 
-export const App = () => (
-  <div className="App">
-    App
-  </div>
-);
-
+export function App() {
+  return (
+    <ThemeProvider>
+      <Router />
+    </ThemeProvider>
+  );
+}
