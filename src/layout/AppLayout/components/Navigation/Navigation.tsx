@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Group, Navbar } from '@mantine/core';
 import { Logout, SwitchHorizontal } from 'tabler-icons-react';
+import { Routes } from 'router';
 import { NavbarLink } from './components/NavbarLink';
 import { DarkModeSwitch } from './components/DarkModeSwitch';
 import { appLinks } from '../../constants/links';
@@ -40,8 +41,8 @@ export const Navigation = () => {
       <Navbar.Section>
         <Group direction="column" align="center" spacing={0}>
           <DarkModeSwitch />
-          <NavbarLink icon={SwitchHorizontal} label="Change account" />
-          <NavbarLink icon={Logout} label="Logout" />
+          <NavbarLink link={Routes.Login} icon={SwitchHorizontal} label="Change account" />
+          <NavbarLink link="" icon={Logout} label="Logout" />
         </Group>
       </Navbar.Section>
     </Navbar>

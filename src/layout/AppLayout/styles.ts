@@ -5,7 +5,7 @@ export const useStyles = createStyles((theme) => ({
     flexGrow: 1,
     paddingTop: '20px',
   },
-  layoutContainer: {
+  layoutWrapper: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
     display: 'flex',

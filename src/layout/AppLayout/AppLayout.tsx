@@ -7,7 +7,7 @@ export const AppLayout = () => {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.layoutContainer}>
+    <div className={classes.layoutWrapper}>
       <Navigation />
       <Container
         size="lg"
