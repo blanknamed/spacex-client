@@ -1,0 +1,15 @@
+{
+  "name": "SpaceX Api GraphQL Proxy",
+  "schemaPath": "./src/generated/graphql.schema.json",
+  "extensions": {
+    "endpoints": {
+      "Main GraphQL Endpoint": {
+        "url": "http://localhost:3000/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      }
+    }
+  }
+}

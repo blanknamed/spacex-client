@@ -1,0 +1,6 @@
+query getAllLaunches {
+    getAllLaunches{
+        name
+        flightNumber
+    }
+}
