@@ -1,6 +1,5 @@
 const RULE_OFF = 'off';
 const RULE_ERROR = 'error';
-
 module.exports = {
   env: {
     browser: true,
@@ -14,6 +13,18 @@ module.exports = {
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:storybook/recommended',
+  ],
+  overrides: [
+    {
+      files: [
+        '**/*.stories.*',
+      ],
+      rules: {
+        'import/no-anonymous-default-export': RULE_OFF,
+        'import/prefer-default-export': RULE_ERROR,
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,13 +35,7 @@ module.exports = {
     project: './tsconfig.eslint.json',
     sourceType: 'module',
   },
-  plugins: [
-    'testing-library',
-    'import',
-    'react',
-    '@typescript-eslint',
-    'sort-keys-fix',
-  ],
+  plugins: ['testing-library', 'import', 'react', '@typescript-eslint', 'sort-keys-fix'],
   rules: {
     '@typescript-eslint/consistent-type-imports': [RULE_ERROR, {
       prefer: 'type-imports',
@@ -41,13 +46,11 @@ module.exports = {
     'import/no-extraneous-dependencies': RULE_OFF,
     'import/order': [RULE_ERROR, {
       groups: ['builtin', 'internal', 'external', 'index', 'sibling', 'parent', 'object', 'type'],
-      pathGroups: [
-        {
-          group: 'builtin',
-          pattern: 'react',
-          position: 'before',
-        },
-      ],
+      pathGroups: [{
+        group: 'builtin',
+        pattern: 'react',
+        position: 'before',
+      }],
     }],
     'import/prefer-default-export': RULE_OFF,
     indent: RULE_OFF,
@@ -57,7 +60,8 @@ module.exports = {
     'newline-before-return': RULE_ERROR,
     'object-curly-newline': [RULE_ERROR, {
       ExportDeclaration: {
-        minProperties: 2, multiline: true,
+        minProperties: 2,
+        multiline: true,
       },
       ImportDeclaration: 'never',
       ObjectExpression: 'always',

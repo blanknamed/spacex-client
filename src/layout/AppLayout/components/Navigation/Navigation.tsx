@@ -4,10 +4,12 @@ import { Logout, SwitchHorizontal } from 'tabler-icons-react';
 import { Routes } from 'router';
 import { NavbarLink } from './components/NavbarLink';
 import { DarkModeSwitch } from './components/DarkModeSwitch';
+import { useStyles } from './styles';
 import { appLinks } from '../../constants/links';
 
 export const Navigation = () => {
   const [active, setActive] = React.useState(2);
+  const { classes } = useStyles();
 
   const links = appLinks.map((link, index) => {
     const isLinkActive = index === active;
@@ -23,16 +25,7 @@ export const Navigation = () => {
   });
 
   return (
-    <Navbar
-      width={{
-        base: 80,
-      }}
-      sx={{
-        bottom: 0,
-        height: '100vh',
-        top: 0,
-      }}
-    >
+    <Navbar className={classes.navbar}>
       <Navbar.Section grow mt={50}>
         <Group direction="column" align="center" spacing={0}>
           {links}

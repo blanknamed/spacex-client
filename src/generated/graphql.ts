@@ -759,13 +759,29 @@ export interface VolumeUnits {
 
 export type GetAllLaunchesQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetAllLaunchesQuery = { getAllLaunches: Array<{ __typename?: 'Launch', name?: string | null, flightNumber?: number | null }> };
+export type GetAllLaunchesQuery = {
+  getAllLaunches: Array<{
+    __typename?: 'Launch',
+    id: string,
+    name?: string | null,
+    launchpad?: string | null,
+    dateUnix?: string | null, links?: { __typename?: 'LaunchLinks', patch?: { __typename?: 'PatchLinks', large?: string | null } | null } | null, rocket: { __typename?: 'Rocket', name: string } }> };
 
 export const GetAllLaunchesDocument = `
     query getAllLaunches {
   getAllLaunches {
+    id
     name
-    flightNumber
+    links {
+      patch {
+        large
+      }
+    }
+    launchpad
+    rocket {
+      name
+    }
+    dateUnix
   }
 }
     `;

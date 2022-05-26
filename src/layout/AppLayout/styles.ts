@@ -3,7 +3,8 @@ import { createStyles } from '@mantine/core';
 export const useStyles = createStyles((theme) => ({
   content: {
     flexGrow: 1,
-    paddingTop: '20px',
+    maxHeight: '100vh',
+    overflowY: 'scroll',
   },
   layoutWrapper: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
