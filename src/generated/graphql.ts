@@ -759,13 +759,13 @@ export interface VolumeUnits {
 
 export type GetAllLaunchesQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetAllLaunchesQuery = {
-  getAllLaunches: Array<{
-    __typename?: 'Launch',
-    id: string,
-    name?: string | null,
-    launchpad?: string | null,
-    dateUnix?: string | null, links?: { __typename?: 'LaunchLinks', patch?: { __typename?: 'PatchLinks', large?: string | null } | null } | null, rocket: { __typename?: 'Rocket', name: string } }> };
+export type GetAllLaunchesQuery = { getAllLaunches: Array<{ __typename?: 'Launch', id: string, name?: string | null, launchpad?: string | null, dateUtc?: string | null, links?: { __typename?: 'LaunchLinks', patch?: { __typename?: 'PatchLinks', large?: string | null } | null } | null, rocket: { __typename?: 'Rocket', name: string } }> };
+
+export type GetLaunchByIdQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+export type GetLaunchByIdQuery = { getLaunchById: { __typename?: 'Launch', name?: string | null } };
 
 export const GetAllLaunchesDocument = `
     query getAllLaunches {
@@ -781,7 +781,14 @@ export const GetAllLaunchesDocument = `
     rocket {
       name
     }
-    dateUnix
+    dateUtc
+  }
+}
+    `;
+export const GetLaunchByIdDocument = `
+    query getLaunchById($id: String!) {
+  getLaunchById(id: $id) {
+    name
   }
 }
     `;
@@ -793,10 +800,18 @@ const injectedRtkApi = api.injectEndpoints({
         document: GetAllLaunchesDocument, variables,
       }),
     }),
+    getLaunchById: build.query<GetLaunchByIdQuery, GetLaunchByIdQueryVariables>({
+      query: (variables) => ({
+        document: GetLaunchByIdDocument, variables,
+      }),
+    }),
   }),
 });
 
 export { injectedRtkApi as api };
 export const {
-  useGetAllLaunchesQuery, useLazyGetAllLaunchesQuery,
+  useGetAllLaunchesQuery,
+  useLazyGetAllLaunchesQuery,
+  useGetLaunchByIdQuery,
+  useLazyGetLaunchByIdQuery,
 } = injectedRtkApi;

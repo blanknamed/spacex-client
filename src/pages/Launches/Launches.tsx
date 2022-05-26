@@ -3,7 +3,7 @@ import { useGetAllLaunchesQuery } from 'generated/graphql';
 import { useStyles } from './styles';
 import { LaunchCard } from '../../components/LaunchCard';
 
-export const Home = () => {
+export const Launches = () => {
   const { data } = useGetAllLaunchesQuery();
   const reversedList = data?.getAllLaunches || [];
   const { classes } = useStyles();
@@ -30,7 +30,7 @@ export const Home = () => {
               image={launch?.links?.patch?.large || ''}
               title={launch.name || ''}
               rocketName={launch.rocket.name}
-              launchDate={launch.dateUnix || ''}
+              launchDate={launch.dateUtc || ''}
               launchSite={launch.launchpad || ''}
             />
           </Grid.Col>

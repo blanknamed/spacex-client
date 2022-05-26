@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Clock, Location } from 'tabler-icons-react';
 import { Card, Center, Group, Text } from '@mantine/core';
+import dayjs from 'dayjs';
 import noImagePlaceholder from 'assets/no-image-placeholder.png';
 import { useStyles } from './styles';
 import type { LaunchCardProps } from './types';
@@ -44,7 +45,7 @@ export function LaunchCard({
               <Center>
                 <Clock size={16} color={theme.colors.dark[2]} />
                 <Text size="sm" className={classes.bodyText}>
-                  {launchDate}
+                  {dayjs(launchDate).format('DD/MM/YYYY')}
                 </Text>
               </Center>
               <Center>

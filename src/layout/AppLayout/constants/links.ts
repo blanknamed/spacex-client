@@ -1,10 +1,10 @@
-import { Dashboard } from 'tabler-icons-react';
+import { Rocket } from 'tabler-icons-react';
 import { Routes } from 'router';
 
 export const appLinks = [
   {
-    icon: Dashboard,
-    label: 'Dashboard',
-    link: Routes.Dashboard,
+    icon: Rocket,
+    label: 'Launches',
+    link: Routes.Launches,
   },
 ];

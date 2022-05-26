@@ -11,6 +11,12 @@ query getAllLaunches {
         rocket {
             name
         }
-        dateUnix
+        dateUtc
+    }
+}
+
+query getLaunchById($id:String!){
+    getLaunchById(id: $id){
+        name
     }
 }
