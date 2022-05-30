@@ -1,6 +1,27 @@
 query getAllLaunches {
-    getAllLaunches{
+    getPaginatedLaunch(sort: "-date_utc",limit: 100){
+       docs {
+           id
+           name
+           links {
+               patch {
+                   large
+               }
+           }
+           launchpad{
+               name
+           }
+           rocket {
+               name
+           }
+           dateUtc
+       }
+        hasNextPage
+    }
+}
+
+query getLaunchById($id:String!){
+    getLaunchById(id: $id){
         name
-        flightNumber
     }
 }

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Container } from '@mantine/core';
+import { Box } from '@mantine/core';
 import { Navigation } from './components/Navigation';
 import { useStyles } from './styles';
 
@@ -9,12 +9,9 @@ export const AppLayout = () => {
   return (
     <div className={classes.layoutWrapper}>
       <Navigation />
-      <Container
-        size="lg"
-        className={classes.content}
-      >
+      <Box className={classes.content}>
         <Outlet />
-      </Container>
+      </Box>
     </div>
   );
 };
