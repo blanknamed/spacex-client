@@ -1,17 +1,22 @@
 query getAllLaunches {
-    getAllLaunches{
-        id
-        name
-        links {
-            patch {
-                large
-            }
-        }
-        launchpad
-        rocket {
-            name
-        }
-        dateUtc
+    getPaginatedLaunch(sort: "-date_utc",limit: 100){
+       docs {
+           id
+           name
+           links {
+               patch {
+                   large
+               }
+           }
+           launchpad{
+               name
+           }
+           rocket {
+               name
+           }
+           dateUtc
+       }
+        hasNextPage
     }
 }
 

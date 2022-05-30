@@ -1,5 +1,4 @@
 import { api } from 'api';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -46,7 +45,7 @@ export enum CapsuleStatus {
   Active = 'active',
   Destroyed = 'destroyed',
   Retired = 'retired',
-  Unknown = 'unknown',
+  Unknown = 'unknown'
 }
 
 export interface CargoInfo {
@@ -114,7 +113,7 @@ export enum CoreStatus {
   Inactive = 'inactive',
   Lost = 'lost',
   Retired = 'retired',
-  Unknown = 'unknown',
+  Unknown = 'unknown'
 }
 
 export interface Crew {
@@ -146,7 +145,7 @@ export enum CrewStatus {
   Active = 'active',
   Inactive = 'inactive',
   Retired = 'retired',
-  Unknown = 'unknown',
+  Unknown = 'unknown'
 }
 
 export enum DatePrecision {
@@ -155,7 +154,7 @@ export enum DatePrecision {
   Hour = 'hour',
   Month = 'month',
   Quarter = 'quarter',
-  Year = 'year',
+  Year = 'year'
 }
 
 export interface Dragon {
@@ -212,7 +211,7 @@ export interface DragonQuery {
 export enum DragonTypeEnum {
   CargoDragon = 'CargoDragon',
   CargoDragon2 = 'CargoDragon2',
-  CrewDragon = 'CrewDragon',
+  CrewDragon = 'CrewDragon'
 }
 
 export interface Engines {
@@ -303,12 +302,12 @@ export enum LandPadStatus {
   Lost = 'lost',
   Retired = 'retired',
   UnderConstruction = 'under_construction',
-  Unknown = 'unknown',
+  Unknown = 'unknown'
 }
 
 export enum LandPadType {
   Asds = 'ASDS',
-  Rtls = 'RTLS',
+  Rtls = 'RTLS'
 }
 
 export interface LandingLegs {
@@ -321,7 +320,7 @@ export enum LandingType {
   Asds = 'ASDS',
   None = 'None',
   Ocean = 'Ocean',
-  Rtls = 'RTLS',
+  Rtls = 'RTLS'
 }
 
 export interface LandpadQuery {
@@ -353,7 +352,7 @@ export interface Launch {
   fairings?: Maybe<Fairings>;
   flightNumber?: Maybe<Scalars['Int']>;
   id: Scalars['String'];
-  launchpad?: Maybe<Scalars['String']>;
+  launchpad: LaunchPad;
   links?: Maybe<LaunchLinks>;
   name?: Maybe<Scalars['String']>;
   net?: Maybe<Scalars['Boolean']>;
@@ -424,7 +423,7 @@ export enum LaunchPadStatus {
   Lost = 'lost',
   Retired = 'retired',
   UnderConstruction = 'under_construction',
-  Unknown = 'unknown',
+  Unknown = 'unknown'
 }
 
 export interface LaunchQuery {
@@ -544,9 +543,11 @@ export interface Query {
   getUpcomingLaunches: Array<Launch>;
 }
 
+
 export type QueryGetCapsuleByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetCapsuleByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -554,9 +555,11 @@ export type QueryGetCapsuleByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetCoreByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetCoreByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -564,9 +567,11 @@ export type QueryGetCoreByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetCrewByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetCrewByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -574,9 +579,11 @@ export type QueryGetCrewByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetDragonByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetDragonByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -584,9 +591,11 @@ export type QueryGetDragonByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetLandPadByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetLandPadByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -594,13 +603,16 @@ export type QueryGetLandPadByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetLaunchByIdArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetLaunchPadByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetLaunchPadByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -608,15 +620,18 @@ export type QueryGetLaunchPadByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetPaginatedLaunchArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetPayloadByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetPayloadByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -624,9 +639,11 @@ export type QueryGetPayloadByQueryArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
 export type QueryGetRocketByIdArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetRocketByQueryArgs = {
   limit?: InputMaybe<Scalars['Int']>;
@@ -759,29 +776,37 @@ export interface VolumeUnits {
 
 export type GetAllLaunchesQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetAllLaunchesQuery = { getAllLaunches: Array<{ __typename?: 'Launch', id: string, name?: string | null, launchpad?: string | null, dateUtc?: string | null, links?: { __typename?: 'LaunchLinks', patch?: { __typename?: 'PatchLinks', large?: string | null } | null } | null, rocket: { __typename?: 'Rocket', name: string } }> };
+
+export type GetAllLaunchesQuery = { getPaginatedLaunch: { __typename?: 'LaunchQuery', hasNextPage: boolean, docs?: Array<{ __typename?: 'Launch', id: string, name?: string | null, dateUtc?: string | null, links?: { __typename?: 'LaunchLinks', patch?: { __typename?: 'PatchLinks', large?: string | null } | null } | null, launchpad: { __typename?: 'LaunchPad', name: string }, rocket: { __typename?: 'Rocket', name: string } }> | null } };
 
 export type GetLaunchByIdQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
+
 export type GetLaunchByIdQuery = { getLaunchById: { __typename?: 'Launch', name?: string | null } };
+
 
 export const GetAllLaunchesDocument = `
     query getAllLaunches {
-  getAllLaunches {
-    id
-    name
-    links {
-      patch {
-        large
-      }
-    }
-    launchpad
-    rocket {
+  getPaginatedLaunch(sort: "-date_utc", limit: 100) {
+    docs {
+      id
       name
+      links {
+        patch {
+          large
+        }
+      }
+      launchpad {
+        name
+      }
+      rocket {
+        name
+      }
+      dateUtc
     }
-    dateUtc
+    hasNextPage
   }
 }
     `;
@@ -796,22 +821,14 @@ export const GetLaunchByIdDocument = `
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
     getAllLaunches: build.query<GetAllLaunchesQuery, GetAllLaunchesQueryVariables | void>({
-      query: (variables) => ({
-        document: GetAllLaunchesDocument, variables,
-      }),
+      query: (variables) => ({ document: GetAllLaunchesDocument, variables })
     }),
     getLaunchById: build.query<GetLaunchByIdQuery, GetLaunchByIdQueryVariables>({
-      query: (variables) => ({
-        document: GetLaunchByIdDocument, variables,
-      }),
+      query: (variables) => ({ document: GetLaunchByIdDocument, variables })
     }),
   }),
 });
 
 export { injectedRtkApi as api };
-export const {
-  useGetAllLaunchesQuery,
-  useLazyGetAllLaunchesQuery,
-  useGetLaunchByIdQuery,
-  useLazyGetLaunchByIdQuery,
-} = injectedRtkApi;
+export const { useGetAllLaunchesQuery, useLazyGetAllLaunchesQuery, useGetLaunchByIdQuery, useLazyGetLaunchByIdQuery } = injectedRtkApi;
+

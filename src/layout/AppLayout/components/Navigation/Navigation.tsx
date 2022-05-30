@@ -25,7 +25,12 @@ export const Navigation = () => {
   });
 
   return (
-    <Navbar className={classes.navbar}>
+    <Navbar
+      width={{
+        base: 80,
+      }}
+      className={classes.navbar}
+    >
       <Navbar.Section grow mt={50}>
         <Group direction="column" align="center" spacing={0}>
           {links}

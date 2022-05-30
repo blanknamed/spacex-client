@@ -1,17 +1,19 @@
 import { Box, Grid, LoadingOverlay } from '@mantine/core';
 import { useGetAllLaunchesQuery } from 'generated/graphql';
+import { LaunchCard } from 'components/LaunchCard';
 import { useStyles } from './styles';
-import { LaunchCard } from '../../components/LaunchCard';
 
 export const Launches = () => {
-  const { data } = useGetAllLaunchesQuery();
-  const reversedList = data?.getAllLaunches || [];
   const { classes } = useStyles();
+
+  const { data } = useGetAllLaunchesQuery();
+
+  const launchesList = data?.getPaginatedLaunch.docs || [];
 
   return (
     <Box className={classes.container}>
       <LoadingOverlay
-        visible={!reversedList.length}
+        visible={!launchesList.length}
         loaderProps={{
           size: 'sm',
           variant: 'bars',
@@ -19,8 +21,8 @@ export const Launches = () => {
         overlayOpacity={0.1}
         overlayColor="#c5c5c5"
       />
-      <Grid gutter="lg" grow>
-        {reversedList.map((launch) => (
+      <Grid gutter="lg">
+        {launchesList.map((launch) => (
           <Grid.Col
             span={3}
             key={launch.id}
@@ -31,7 +33,7 @@ export const Launches = () => {
               title={launch.name || ''}
               rocketName={launch.rocket.name}
               launchDate={launch.dateUtc || ''}
-              launchSite={launch.launchpad || ''}
+              launchSite={launch.launchpad.name || ''}
             />
           </Grid.Col>
         ))}
